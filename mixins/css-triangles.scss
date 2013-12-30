@@ -1,0 +1,49 @@
+/* CSS TRIANGLES
+=================================================================== */
+@mixin css-triangles($width:20px,$height:10px,$color:red,$direction:top,$center:true, $type:isoceles)
+{
+	/* $type not yet implemented
+	=================================================================== */
+	
+	&:before
+	{
+		content:"";
+		position:absolute;
+		height:0;
+		width:0;
+		border-style:solid;
+
+		@if $center==true{
+
+			@if $direction=="top" or $direction =="bottom" {
+				left:50%;
+				margin-left:-($width/2);
+			} @elseif $direction=="left" or $direction=="right" {
+				top:50%;
+				margin-top:-($width/2);
+			}
+		}
+		
+		@if $direction=="top"{
+			top: -($height);
+
+			border-width:0 ($width/2) $height ($width/2);
+			border-color:transparent transparent $color transparent;
+		} @elseif $direction=="bottom" {
+			bottom:-$height;
+
+			border-width:$height ($width/2) 0 ($width/2);
+			border-color:$color transparent transparent transparent;
+		} @elseif $direction=="right" {
+			right:-$height;
+
+			border-width:($width/2) 0 ($width/2) $height;
+			border-color:transparent transparent transparent $color;
+		} @elseif $direction=="left" {
+			left:-$height;
+
+			border-width:($width/2) $height ($width/2) 0;
+			border-color:transparent $color transparent transparent;
+		}
+	}
+}
