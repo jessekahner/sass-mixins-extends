@@ -1,2 +1,3 @@
-sass-mixins-extends
+SASS Mixins & Extends
 ===================
+Soon...
