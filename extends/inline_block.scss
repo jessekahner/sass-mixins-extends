@@ -1,0 +1,13 @@
+/* INLINE-BLOCK
+=================================================================== */
+%inline_block
+{
+	display: inline-block !important;
+	vertical-align:middle;
+	
+	.lt-ie8 &
+	{
+		zoom:1;
+		*display:inline;
+	}
+}
